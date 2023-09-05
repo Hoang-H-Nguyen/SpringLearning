@@ -30,3 +30,27 @@ Example:
 - Spring will scan for @Components, @Component annotation marks the class as a Spring Bean (a regular Java class is managed by Spring, makes the bean available for dependency injection)
 - Any class implements that Object interface
 - If so, let's inject them.
+
+
+## If multiple beans 
+- @Qualifier: specified the bean name class, no uppercase, more specific, higher priority than @Primary
+- @Primary: only one primary class
+
+## Lazy initialization with @Lazy
+Advantages:
+- Only create objects as needed
+- May help with faster startup time if you have large number of components
+Disadvantages:
+- If having web related components like @RestController, not created until requested.
+- Make sure having enough memory for all beans once created.
+
+## Bean Scope
+Default is singleton
+- singleton: create a single shared instance of  the bean
+- prototype: create a new bean instance for each container request
+- request: scoped to an HTTP web request. Only used for web apps
+- session: scoped to an HTTP web session.. Only used for web apps
+- global-session: scoped to a global HTTP web session. Only used for web apps
+
+## @Bean annotation
+Make an existing third-party class available to spring framework.
